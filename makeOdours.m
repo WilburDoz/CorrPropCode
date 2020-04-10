@@ -1,5 +1,5 @@
 %% makeOdours.m
-% Program to create a glomerular representation of a set of random odours
+% Program to create a Glomerular representation of a set of random odours
 % Inputs:   No - the number of of odours to be simulated
 %           f - No by No matrix decribing odour correlation with one and
 %           other.
@@ -9,14 +9,14 @@
 %           0   0  1]
 %           If a single number is passes rather than a matrix it is assumed
 %           to be modelling a class with corr f.
-% Outputs:  x - matrix of glomerular response to each No odour (Nx by No)
+% Outputs:  x - matrix of Glomerular response to each No odour (Nx by No)
 %           similarity - vector of similarity to referrence odour which is
 %           first - not particularly useful.
 
-%% Calculate the glomerular representation of a set of, potentially correlated, odours.
+%% Calculate the Glomerular representation of a set of, potentially correlated, odours.
 function [x,similarity] = makeOdours(No, f)
 
-global Sx Nx glomActMu glomActSig
+global Sx Nx GlomActMu GlomActSig
 
 % Here we create the setup if we are only simulating one class therefore No
 % by No rule is broken, instead all odours have f overlap.
@@ -58,6 +58,6 @@ else
     end
 end
 xtmp = rand(Nx,No) < pMat;
-x = makeXmag(xtmp,inf,No,Nx,glomActMu,glomActSig,f);
+x = makeXmag(xtmp,inf,No,Nx,GlomActMu,GlomActSig,f);
 end
 
